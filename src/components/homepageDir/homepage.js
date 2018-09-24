@@ -28,6 +28,11 @@ const HomepageHeading = () => (
     </Container>
 )
 
+// const HomepageHeading = ({ mobile }) => (
+//     <container>
+//     </container>
+// )
+
 HomepageHeading.propTypes = {
     mobile: PropTypes.bool,
 }
@@ -47,45 +52,110 @@ class DesktopContainer extends Component {
         const { fixed } = this.state
 
         return (
-            <Responsive>
-                <Visibility
-                    once={false}
-                    onBottomPassed={this.showFixedMenu}
-                    onBottomPassedReverse={this.hideFixedMenu}
-                >
-                    <Segment
-                        inverted
-                        textAlign='center'
-                        style={{ minHeight: 700, padding: '1em 0em' }}
-                        vertical
-                    >
-                        <Menu
-                            fixed={fixed ? 'top' : null}
-                            inverted={!fixed}
-                            pointing={!fixed}
-                            secondary={!fixed}
-                            size='large'
-                        >
-                            <Container>
-                                <Menu.Item as='a' active>
-                                    Home
-                                </Menu.Item>
-                                <Menu.Item as='a'>Work</Menu.Item>
-                                <Menu.Item as='a'>Company</Menu.Item>
-                                <Menu.Item as='a'>Careers</Menu.Item>
-                                <Menu.Item position='right'>
-                                    <Button as='a' inverted={!fixed}>
-                                        Log in
-                                    </Button>
-                                    <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                                        Sign Up
-                                    </Button>
-                                </Menu.Item>
+            <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
+                {/*<Visibility*/}
+                    {/*once={false}*/}
+                    {/*onBottomPassed={this.showFixedMenu}*/}
+                    {/*onBottomPassedReverse={this.hideFixedMenu}*/}
+                {/*>*/}
+                    {/*<Segment*/}
+                        {/*className="transparent_back"*/}
+                        {/*inverted*/}
+                        {/*textAlign='center'*/}
+                        {/*horizontal*/}
+                    {/*>*/}
+                <Grid divided='vertically'>
+                    <Grid.Row columns={1}>
+                        <Grid.Column>
+                            <header className="App-header noPadding">
+                                <img src={logo} className="noPadding App_logo_mobile" alt="logo" />
+                            </header>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+                <Grid divided='vertically'>
+                    <Grid.Row columns={1}>
+                        <Grid.Column>
+                            <Menu
+                                className="transparent_back"
+                                // fixed={fixed ? 'top' : null}
+                                inverted={!fixed}
+                                pointing={!fixed}
+                                secondary={!fixed}
+                                size='large'
+                            >
+                                <Container className="transparent_back centerthis">
+                                    <Menu.Item
+                                        as='a'
+                                        className="no_borders mt-5"
+                                        onClick={() =>
+                                            window.open(
+                                                "https://github.com/lkovesdi",
+                                                "_blank"
+                                            )
+                                        }
+                                    >
+                                        <i className="fab fa-github fa-4x icon_padding centerthis"></i>
+                                    </Menu.Item>
+                                    <Menu.Item
+                                        as='a'
+                                        className="no_borders"
+                                        onClick={() =>
+                                            window.open(
+                                                "https://www.behance.net/lkovesdi",
+                                                "_blank"
+                                            )
+                                        }
+                                    >
+                                        <i className="fab fa-behance fa-4x icon_padding centerthis"></i>
+                                    </Menu.Item>
+                                    <Menu.Item
+                                        as='a'
+                                        className="no_borders"
+                                        onClick={() =>
+                                            window.open(
+                                                "https://linkedin.com/in/lkovesdi",
+                                                "_blank"
+                                            )
+                                        }
+                                    >
+                                        <i className="fab fa-linkedin fa-4x icon_padding centerthis"></i>
+                                    </Menu.Item>
+                                    <Menu.Item
+                                        as='a'
+                                        className="no_borders"
+                                        onClick={() =>
+                                            window.open(
+                                                "https://twitter.com/lkovesdi",
+                                                "_blank"
+                                            )
+                                        }
+                                    >
+                                        <i className="fab fa-twitter fa-4x icon_padding centerthis"></i>
+                                    </Menu.Item>
+                                    <Menu.Item
+                                        as='a'
+                                        className="no_borders"
+                                        onClick={() =>
+                                            window.open(
+                                                "mailto:lkovesdi@outlook.com"
+                                            )
+                                        }
+                                    >
+                                        <i className="far fa-envelope-open fa-4x icon_padding centerthis"></i>
+                                    </Menu.Item>
+
                             </Container>
                         </Menu>
+                        </Grid.Column>
+                        <Grid.Column className="noPadding">
+                            <p className="white_text pt-20">laszlo kovesdi • ux/ui design & front-end developer</p>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
                         <HomepageHeading />
-                    </Segment>
-                </Visibility>
+                    {/*</Segment>*/}
+                {/*</Visibility>*/}
 
                 {children}
             </Responsive>
@@ -113,7 +183,7 @@ class MobileContainer extends Component {
         const { sidebarOpened } = this.state
 
         return (
-            <Responsive>
+            <Responsive minWidth={Responsive.onlyTablet.minWidth}>
                 <Sidebar.Pushable>
                     <Sidebar
                         className="transparent_back"
@@ -206,27 +276,27 @@ class MobileContainer extends Component {
                                         </Grid.Column>
                                         <Grid.Column>
                                             <header className="App-header">
-                                                <img src={logo} className="App-logo" alt="logo" />
-                                                <h1 className="App-title">Laszlo Kovesdi</h1>
-                                            </header>
-                                        </Grid.Column>
-                                    </Grid.Row>
-                                    <Grid.Row columns={2} className="small_padding">
-                                        <Grid.Column>
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <p className="float-right text-align-right translate_title">
-                                                ux/ui design & front-end developer</p>
-                                        </Grid.Column>
-                                    </Grid.Row>
-                                    <Grid.Row columns={1}>
-                                        <Menu inverted pointing secondary size='large' className="footer_nav">
-                                            <Menu.Item onClick={this.handleToggle} className="centerThis">
-                                                <i className="fas fa-angle-left fa-3x"></i>
-                                                <Footer />
-                                            </Menu.Item>
-                                        </Menu>
-                                    </Grid.Row>
+                                    <img src={logo} className="App-logo" alt="logo" />
+                                    <h2 className="App-title">Laszlo Kovesdi</h2>
+                                </header>
+                                </Grid.Column>
+                                </Grid.Row>
+                                <Grid.Row columns={2} className="small_padding">
+                                    <Grid.Column>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <p className="float-right text-align-right translate_title">
+                                            ux/ui design & front-end developer</p>
+                                    </Grid.Column>
+                                </Grid.Row>
+                                <Grid.Row columns={1}>
+                                    <Menu inverted pointing secondary size='large' className="footer_nav">
+                                        <Menu.Item onClick={this.handleToggle} className="centerThis">
+                                            <i className="fas fa-angle-left fa-3x"></i>
+                                            <Footer />
+                                        </Menu.Item>
+                                    </Menu>
+                                </Grid.Row>
                                 </Grid>
                                 </div>
                             </Container>
@@ -248,6 +318,7 @@ MobileContainer.propTypes = {
 const ResponsiveContainer = ({ children }) => (
     <div>
         <MobileContainer>{children}</MobileContainer>
+        <DesktopContainer>{children}</DesktopContainer>
     </div>
 )
 
@@ -256,8 +327,7 @@ ResponsiveContainer.propTypes = {
 }
 
 const HomepageLayout = () => (
-    <ResponsiveContainer>
+    <ResponsiveContainer />
 
-    </ResponsiveContainer>
 )
 export default HomepageLayout

@@ -1,3 +1,49 @@
+
+@media (max-width : 768px) {
+    .App {
+        background-color: transparent !important;
+        height: 100%;
+    }
+
+    .ui.menu>.container, .ui.menu>.grid {
+        display: grid !important;
+    }
+
+    .ui.menu>.ui.container {
+        width: 0%;
+    }
+
+    .b-bgvideo {
+        position: fixed !important;
+    }
+    .icon_padding {
+        padding-bottom: 15px !important;
+        padding-top: 15px !important;
+    }
+    .ui.menu:after {
+        content: none;
+    }
+    .ui.secondary.pointing.menu {
+        border-bottom: none !important;
+    }
+    .ui.secondary.inverted.pointing.menu {
+        border-width: 0px;
+    }
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.noPadding {
+    padding: 0;
+}
+
+
+.white_text {
+    color: white;
+}
+
 .App {
   text-align: center;
   background-color: black;
@@ -9,6 +55,11 @@
   height: 80px;
   float: right;
   /*filter: invert(100%);*/
+}
+
+.App_logo_mobile {
+    height: 130px;
+    mix-blend-mode: color-dodge;
 }
 
 .bg {
@@ -174,4 +225,8 @@ h1, h2, h3, h4 {
 .bg_container {
     height:800px;
     overflow:hidden;
+}
+
+.ui[class*="vertically divided"].grid>.row:before {
+    content: none !important;
 }
